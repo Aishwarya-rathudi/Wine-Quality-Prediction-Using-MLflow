@@ -53,5 +53,7 @@ def index():
 
 
 if __name__ == "__main__":
-	# app.run(host="0.0.0.0", port = 5000)
-	app.run(host='0.0.0.0', port=5000)
+	# app.run(host="0.0.0.0", port = 8080) #for aws n localhost
+    # app.run(host="0.0.0.0", port = 80) #for azure
+
+	app.run(host='0.0.0.0', port=80)

@@ -90,4 +90,14 @@
     ECR_REPOSITORY_NAME = simple-app
 
 
+# Deployment in Azure
 
+## Run from terminal
+docker build -t mlproj.azurecr.io/mlproj:latest
+
+docker login mlproj.azurecr.io
+
+docker push mlproj.azurecr.io/mlproj:latest
+
+# Save Pass
+jVx6Q5/qv+ThwoBKhQHgBsIZSPLwCM7BbHg0pnqDoE+ACRBzAflI
