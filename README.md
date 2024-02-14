@@ -99,5 +99,4 @@ docker login mlproj.azurecr.io
 
 docker push mlproj.azurecr.io/mlproj:latest
 
-# Save Pass
-jVx6Q5/qv+ThwoBKhQHgBsIZSPLwCM7BbHg0pnqDoE+ACRBzAflI
+
