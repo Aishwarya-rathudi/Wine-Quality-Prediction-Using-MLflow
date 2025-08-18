@@ -1,102 +1,129 @@
-# End-to-End-Machine-learning-Project-with-MLflow
+# 🍷 Wine Quality Prediction – End-to-End ML Project with MLflow
+
+---
+
+## 📖 Overview
+
+This project implements an **end-to-end machine learning solution** to predict wine quality using **ElasticNet regression**. 
+
+The aim is to assist winemakers in assessing and improving wine quality through data-driven insights.  
+
+- Built a scalable ML pipeline with **MLflow** for experiment tracking, model management, and versioning.
+  
+- Developed a **Flask web application** for real-time predictions.
+  
+- Established **CI/CD pipelines** using GitHub Actions for automated deployments.
+  
+- Successfully deployed on **AWS (EC2, ECR)** and **Azure (Container Registry & Web App)**.  
+
+---
+
+## ❓ Problem Statement
+
+Winemakers often face challenges in assessing wine quality objectively. Traditional methods rely heavily on manual tasting,  
+which can be inconsistent and subjective.  
+
+The goal of this project is to: 
+
+- Build a predictive system to **classify wine quality** based on physicochemical properties.
+  
+- Provide a **web-based tool** for winemakers to upload data and receive instant predictions.
+  
+- Enable **continuous integration and deployment (CI/CD)** for scalable, production-ready ML workflows.  
+
+---
+
+## 🔹 Steps Followed
+
+### 1. Workflows
+- Updated `config.yaml`
+  
+- Updated `schema.yaml`
+  
+- Updated `params.yaml`
+  
+- Defined entities
+  
+- Updated the **configuration manager** in `src/config`
+    
+- Built **components** and **pipeline**
+  
+- Updated `main.py`
+  
+- Updated `app.py`  
+
+---
+
+### 2. AWS CI/CD Deployment with GitHub Actions
+
+**a. IAM Setup**  
+
+- Created IAM user with access to:
+  
+  - **EC2** → virtual machine
+    
+  - **ECR** → container registry  
+
+**b. Policies**  
+
+- `AmazonEC2ContainerRegistryFullAccess`
+  
+- `AmazonEC2FullAccess`  
+
+**c. ECR Repository**  
+
+- Example URI:  
 
 
-## Workflows
+**d. EC2 Setup & Docker Installation**  
+```bash
 
-1. update config.yaml
-2. update schema.yaml
-3. update params.yaml
-4. update the entity
-5. update the configuartion manager in src config
-6. update the components
-7. update the pipeline
-8. update the main.py
-9. update the app.py
+sudo apt-get update -y
 
+sudo apt-get upgrade
 
+curl -fsSL https://get.docker.com -o get-docker.sh
 
-# AWS-CICD-Deployment-with-Github-Actions
+sudo sh get-docker.sh
 
-## 1. Login to AWS console.
+sudo usermod -aG docker ubuntu
 
-## 2. Create IAM user for deployment
+newgrp docker
 
-	#with specific access
+e. Configure EC2 as Self-Hosted Runner
 
-	1. EC2 access : It is virtual machine
+Go to GitHub: Settings > Actions > Runners > New self-hosted runner
 
-	2. ECR: Elastic Container registry to save your docker image in aws
+Choose OS and run commands.
 
+f. Setup GitHub Secrets
 
-	#Description: About the deployment
+AWS_ACCESS_KEY_ID=<your-key>
 
-	1. Build docker image of the source code
+AWS_SECRET_ACCESS_KEY=<your-secret>
 
-	2. Push your docker image to ECR
+AWS_REGION=us-east-1
 
-	3. Launch Your EC2 
+AWS_ECR_LOGIN_URI=566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
-	4. Pull Your image from ECR in EC2
+ECR_REPOSITORY_NAME=simple-app
 
-	5. Lauch your docker image in EC2
+3. Azure Deployment
 
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: 654654262105.dkr.ecr.eu-north-1.amazonaws.com/mlproject
-
-
-	
-## 4. Create EC2 machine (Ubuntu) 
-
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
-
-    AWS_SECRET_ACCESS_KEY=
-
-    AWS_REGION = us-east-1
-
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-    ECR_REPOSITORY_NAME = simple-app
-
-
-# Deployment in Azure
-
-## Run from terminal
-docker build -t mlproj.azurecr.io/mlproj:latest
+docker build -t mlproj.azurecr.io/mlproj:latest .
 
 docker login mlproj.azurecr.io
 
 docker push mlproj.azurecr.io/mlproj:latest
 
+✅ Outcome
 
+Achieved high accuracy in predicting wine quality
+
+Provided real-time web app predictions
+
+Enabled scalable CI/CD deployment pipelines on AWS and Azure
+
+Delivered valuable insights for winemakers to refine their products
+
+🖼️ Demo Screenshot
