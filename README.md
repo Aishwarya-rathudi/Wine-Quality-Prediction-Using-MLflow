@@ -89,13 +89,13 @@ sudo usermod -aG docker ubuntu
 
 newgrp docker
 
-e. Configure EC2 as Self-Hosted Runner
+**e. Configure EC2 as Self-Hosted Runner**
 
 Go to GitHub: Settings > Actions > Runners > New self-hosted runner
 
 Choose OS and run commands.
 
-f. Setup GitHub Secrets
+**f. Setup GitHub Secrets**
 
 AWS_ACCESS_KEY_ID=<your-key>
 
@@ -107,7 +107,7 @@ AWS_ECR_LOGIN_URI=566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
 ECR_REPOSITORY_NAME=simple-app
 
-3. Azure Deployment
+### 3. Azure Deployment
 
 docker build -t mlproj.azurecr.io/mlproj:latest .
 
@@ -126,3 +126,7 @@ Enabled scalable CI/CD deployment pipelines on AWS and Azure
 Delivered valuable insights for winemakers to refine their products
 
 ## 🖼️ Demo Screenshot
+
+<img width="897" height="861" alt="wine quality" src="https://github.com/user-attachments/assets/1c19f892-81c9-4cd2-82fe-acd654b92c74" />
+
+
