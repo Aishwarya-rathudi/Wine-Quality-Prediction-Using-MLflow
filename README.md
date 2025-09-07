@@ -76,7 +76,6 @@ The goal of this project is to:
 
 
 **d. EC2 Setup & Docker Installation**  
-```bash
 
 sudo apt-get update -y
 
@@ -116,7 +115,7 @@ docker login mlproj.azurecr.io
 
 docker push mlproj.azurecr.io/mlproj:latest
 
-✅ Outcome
+## ✅ Outcome
 
 Achieved high accuracy in predicting wine quality
 
@@ -126,4 +125,4 @@ Enabled scalable CI/CD deployment pipelines on AWS and Azure
 
 Delivered valuable insights for winemakers to refine their products
 
-🖼️ Demo Screenshot
+## 🖼️ Demo Screenshot
